@@ -1,0 +1,17 @@
+version: '2'
+services:
+  base:
+    build:
+      context: .
+      dockerfile: Dockerfiles/Dockerfile
+    container_name: react_redux_base
+    environment:
+      - NODE_ENV=development
+      - NPM_CONFIG_LOGLEVEL=info
+    image: styers/react-redux-base
+    ports:
+      - "80:8080"
+    restart: on_failure
+    working_dir: /app/base
+    volumes:
+      - .:/app/base
