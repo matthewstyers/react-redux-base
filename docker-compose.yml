@@ -4,8 +4,15 @@ services:
     build:
       context: .
       dockerfile: Dockerfiles/Dockerfile
-    container_name: react_redux_base
     environment:
       - NODE_ENV=development
     image: styers/react-redux-base:latest
+    restart: on_failure
+  yarn:
+    build:
+      context: .
+      dockerfile: Dockerfiles/yarn.Dockerfile
+    environment:
+      - NODE_ENV=development
+    image: styers/react-redux-base:yarn
     restart: on_failure
